@@ -4,12 +4,9 @@
 
 void heartbeat() {
 
-  float bpm = map(analogRead(potpin), 0, 1023, 30, 100);
-  float ondelay = (0.3 * ((60.0 / bpm) * 1000.0)) / 255.0;
-  float offdelay = (0.7 * ((60.0 / bpm) * 1000.0)) / 255.0;
-  
-  Serial.println(ondelay);
-  Serial.println(bpm);
+  int bpm = map(analogRead(potpin), 0, 1023, 30, 100);
+  int ondelay = (0.3 * ((60.0 / bpm) * 1000.0)) / 255.0;
+  int offdelay = (0.7 * ((60.0 / bpm) * 1000.0)) / 255.0;
 
   for (brightness = 0; brightness <= 255; brightness += 1) {  //
       analogWrite(ledpin, brightness);
